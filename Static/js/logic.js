@@ -39,7 +39,7 @@ function createFeatures(earthquakeData) {
                 {
                     radius: markerSize(feature.properties.mag),
                     fillColor: markerColor(feature.properties.mag),
-                    fillOpacity: 1,
+                    fillOpacity: .75,
                     stroke: false,
                 })
         }
@@ -111,12 +111,12 @@ function createMap(earthquakes) {
     legend.onAdd = function () {
 
         var div = L.DomUtil.create('div', 'info legend'),
-            magnitudes = [1, 2, 3, 4, 5];
+            mag = [1, 2, 3, 4, 5];
 
-        for (var i = 0; i < magnitudes.length; i++) {
+        for (var i = 0; i < mag.length; i++) {
             div.innerHTML +=
-                '<i style="background:' + markerColor(magnitudes[i] + 1) + '"></i> ' +
-                + magnitudes[i] + (magnitudes[i + 1] ? ' - ' + magnitudes[i + 1] + '<br>' : ' + ');
+                '<i style="background:' + markerColor(mag[i] + 1) + '"></i> ' +
+                + mag[i] + (mag[i + 1] ? ' - ' + mag[i + 1] + '<br>' : ' + ');
         }
 
         return div;
